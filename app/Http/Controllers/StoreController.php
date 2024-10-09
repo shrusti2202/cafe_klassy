@@ -44,8 +44,8 @@ class StoreController extends Controller
      */
     public function edit(store $store)
     {
-        $store_arr=store::all();
-        return view('admin.manage_store',['store_arr'=>$store_arr]);
+        $store_arr = store::all();
+        return view('admin.manage_store', ['store_arr' => $store_arr]);
     }
 
     /**

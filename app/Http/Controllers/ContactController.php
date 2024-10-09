@@ -14,9 +14,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $contact_arr=contact::all();
-        return view('admin.manage_contact',['contact_arr'=>$contact_arr]);
-
+        $contact_arr = contact::all();
+        return view('admin.manage_contact', ['contact_arr' => $contact_arr]);
     }
 
     /**
@@ -25,12 +24,11 @@ class ContactController extends Controller
     public function create()
     {
         return view('website.contact');
-
     }
 
     public function insert()
     {
-       //
+        //
     }
 
     /**
@@ -47,19 +45,19 @@ class ContactController extends Controller
 
         // Ensure you're using the correct model
         $data = new contact; // Assuming you're working with the 'blog' model
-    
+
         // Assign the request data
-        $data->name = $request->name;        
-        $data->email = $request->email;        
-        $data->subject = $request->subject;        
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->subject = $request->subject;
         $data->message = $request->message;
-    
+
         // Save the data
         $data->save();
-    
+
         // Use the alert and redirect
         Alert::success('Success Title', ' Success Message');
-        return redirect('/add_contact');
+        return redirect('/contact');
     }
 
     /**
@@ -73,10 +71,7 @@ class ContactController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(contact $contact)
-    {
-       
-    }
+    public function edit(contact $contact) {}
 
     /**
      * Update the specified resource in storage.

@@ -44,8 +44,8 @@ class FeatureController extends Controller
      */
     public function edit(feature $feature)
     {
-        $feature_arr=feature::all();
-        return view('admin.manage_feature',['feature_arr'=>$feature_arr]);
+        $feature_arr = feature::all();
+        return view('admin.manage_feature', ['feature_arr' => $feature_arr]);
     }
 
     /**

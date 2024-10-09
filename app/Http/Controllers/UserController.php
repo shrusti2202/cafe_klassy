@@ -44,8 +44,8 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        $user_arr=user::all();
-        return view('admin.manage_users',['user_arr'=>$user_arr]);
+        $user_arr = user::all();
+        return view('admin.manage_users', ['user_arr' => $user_arr]);
     }
 
     /**

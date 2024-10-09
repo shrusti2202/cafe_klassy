@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\product;
+use App\Models\admin;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('website.product');
+        //
     }
 
     /**
@@ -20,7 +20,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.add_product');
+        //
     }
 
     /**
@@ -34,7 +34,7 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(product $product)
+    public function show(admin $admin)
     {
         //
     }
@@ -42,16 +42,15 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(product $product)
+    public function edit(admin $admin)
     {
-        $product_arr = product::all();
-        return view('admin.manage_product', ['product_arr' => $product_arr]);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, product $product)
+    public function update(Request $request, admin $admin)
     {
         //
     }
@@ -59,7 +58,7 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(product $product)
+    public function destroy(admin $admin)
     {
         //
     }

@@ -3,74 +3,74 @@
 @section('main_code')
 <!DOCTYPE html>
 <html>
+
 <head>
-<style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
 
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
+    td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
 
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-</style>
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+  </style>
 </head>
+
 <body>
 
-<div id="menu" class="box1">
+  <div id="menu" class="box1">
     <ul class="box1 f-right">
       <li><a href="add_testimonial"><span><strong>ADD TESTIMOIAL &raquo;</strong></span></a></li>
     </ul>
-</div>
-<h1 ALIGN='center' style='color:grey'>TESTIMOIAL</h1>
+  </div>
+  <h1 ALIGN='center' style='color:grey'>TESTIMOIAL</h1>
 
-<table>
-  <tr>
-    <th>ID</th>
-    <th>NAME</th>
-    <th>IMAGE</th>
-    <th>DESCRIPTION</th>
-    <th>ACTION</th>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>NAME</th>
+      <th>IMAGE</th>
+      <th>DESCRIPTION</th>
+      <th>ACTION</th>
+    </tr>
+    <tr>
+      <?php
+      if (!empty($testimonial_arr)) {
+        foreach ($testimonial_arr as $w) {
+      ?>
+          <td><?php echo $w->id; ?></td>
+          <td><?php echo $w->name; ?></td>
+          <td><?php echo $w->img; ?></td>
+          <td><?php echo $w->description; ?></td>
+          <td>
+            <button href="" class="btn btn-primary"><?php echo $w->status; ?></button>
+            <button href="" class="btn btn-primary">Edit</button>
+            <button>DELETE</button>
+          </td>
+        <?php
+        }
+      } else {
+        ?>
+    <tr>
+      <td align="center" colspan="4"> Data Not Found </td>
+    </tr>
+  <?php
+      }
+  ?></tr>
   </tr>
-  <tr>
-    <?php
-  	if(!empty($testimonial_arr))
-  		{
-  			foreach($testimonial_arr as $w)
-  			{
-  			?>
-    <td><?php echo $w->id;?></td>
-    <td><?php echo $w->name;?></td>
-    <td><?php echo $w->img;?></td>
-    <td><?php echo $w->description;?></td>
-    <td>
-    <button href="" class="btn btn-primary"><?php echo $w->status;?></button>
-    <button href="" class="btn btn-primary">Edit</button>
-    <button>DELETE</button>
-    </td>  
-    <?php
-					}
-				}
-				else
-				{	
-                            ?>
-				<tr>
-					<td align="center" colspan="4"> Data Not Found </td>
-				</tr>
-				<?php
-				}
-				?></tr>
-  </tr>
-</table>
+  </table>
 
 </body>
+
 </html>
 
 @endsection

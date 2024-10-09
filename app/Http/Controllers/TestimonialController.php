@@ -44,8 +44,8 @@ class TestimonialController extends Controller
      */
     public function edit(testimonial $testimonial)
     {
-        $testimonial_arr=testimonial::all();
-        return view('admin.manage_testimonial',['testimonial_arr'=>$testimonial_arr]);
+        $testimonial_arr = testimonial::all();
+        return view('admin.manage_testimonial', ['testimonial_arr' => $testimonial_arr]);
     }
 
     /**

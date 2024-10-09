@@ -32,7 +32,7 @@
 
 
 
-    
+
 
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
@@ -46,24 +46,25 @@
 
 
 
-    
+
     <!-- Template Javascript -->
     <script src="{{ url('website/js/main.js')}}"></script>
-    
+
 </head>
 
 <body>
+    @include('sweetalert::alert')
 
-<?php
-function active($currect_page){
-  $url_array =  explode('/', $_SERVER['REQUEST_URI']) ; // current page url
-  $url = end($url_array);  
-  if($currect_page == $url){
-	  echo 'active'; //class name in css 
-  } 
-}
-?>
-@include('sweetalert::alert')
+    <?php
+    function active($currect_page)
+    {
+        $url_array =  explode('/', $_SERVER['REQUEST_URI']); // current page url
+        $url = end($url_array);
+        if ($currect_page == $url) {
+            echo 'active'; //class name in css 
+        }
+    }
+    ?>
 
     <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -71,7 +72,7 @@ function active($currect_page){
     </div>
     <!-- Spinner End -->
 
-    
+
     <!-- Navbar Start -->
     <div class="container-fluid bg-white sticky-top">
         <div class="container">
@@ -84,29 +85,27 @@ function active($currect_page){
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto">
-                        <a href="/" class="nav-item nav-link <?php active('')?>">Home</a>
-                        <a href="about" class="nav-item nav-link <?php active('about')?>">About</a>
-                        <a href="product" class="nav-item nav-link <?php active('product')?>">Products</a>
-                        <a href="store" class="nav-item nav-link <?php active('store')?>">Store</a>
+                        <a href="/" class="nav-item nav-link <?php active('') ?>">Home</a>
+                        <a href="about" class="nav-item nav-link <?php active('about') ?>">About</a>
+                        <a href="product" class="nav-item nav-link <?php active('product') ?>">Products</a>
+                        <a href="store" class="nav-item nav-link <?php active('store') ?>">Store</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu bg-light rounded-0 m-0">
-                                <a href="feature" class="dropdown-item <?php active('feature')?>">Features</a>
-                                <a href="blog" class="dropdown-item <?php active('blog')?>">Blog Article</a>
-                                <a href="testimonial" class="dropdown-item <?php active('testimonial')?>">Testimonial</a>
-                                <a href="404" class="dropdown-item <?php active('404')?>">404 Page</a>
+                                <a href="feature" class="dropdown-item <?php active('feature') ?>">Features</a>
+                                <a href="blog" class="dropdown-item <?php active('blog') ?>">Blog Article</a>
+                                <a href="testimonial" class="dropdown-item <?php active('testimonial') ?>">Testimonial</a>
+                                <a href="404" class="dropdown-item <?php active('404') ?>">404 Page</a>
                             </div>
                         </div>
-                        <a href="contact" class="nav-item nav-link <?php active('contact')?>">Contact</a>
+                        <a href="contact" class="nav-item nav-link <?php active('contact') ?>">Contact</a>
                         <div class="navbar-nav ms-auto border-start ps-4 d-none d-lg-block">
-                    <a href="signup" class="nav-item nav-link <?php active('signup')?>">Signup</a>
+                            <a href="signup" class="nav-item nav-link <?php active('signup') ?>">Signup</a>
+                        </div>
                     </div>
-                    </div>
-                   
+
                 </div>
             </nav>
         </div>
     </div>
     <!-- Navbar End -->
-
-

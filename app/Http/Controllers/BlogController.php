@@ -13,8 +13,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blog_arr=blog::all();
-        return view('admin.manage_blog',['blog_arr'=>$blog_arr]);
+        $blog_arr = blog::all();
+        return view('admin.manage_blog', ['blog_arr' => $blog_arr]);
     }
 
     /**
@@ -44,36 +44,36 @@ class BlogController extends Controller
 
         // Ensure you're using the correct model
         $data = new blog; // Assuming you're working with the 'blog' model
-    
+
         // Assign the request data
         $data->name = $request->name;
-    
-    
+
+
         // Check if file is uploaded
-        
-            // Get the uploaded file
-            $file = $request->file('img');
-    
-            // Generate a unique file name and get file extension
-            $filename = time() . '_img.' . $file->getClientOriginalExtension(); // e.g. 656676576_img.jpg
-    
-            // Move the file to the desired location
-            $file->move('admin/assests/img/blogs', $filename); // Corrected path to 'public' directory
-    
-            // Store the file name in the database
-            $data->img = $filename;
-    
+
+        // Get the uploaded file
+        $file = $request->file('img');
+
+        // Generate a unique file name and get file extension
+        $filename = time() . '_img.' . $file->getClientOriginalExtension(); // e.g. 656676576_img.jpg
+
+        // Move the file to the desired location
+        $file->move('admin/assests/img/blogs', $filename); // Corrected path to 'public' directory
+
+        // Store the file name in the database
+        $data->img = $filename;
+
         // Assign the other data fields
         $data->description = $request->description;
-    
+
         // Save the data
         $data->save();
-    
+
         // Use the alert and redirect
         Alert::success('Success Title', 'Blog Add Success');
         return redirect('/add_blog');
     }
-    
+
 
     /**
      * Display the specified resource.
@@ -86,10 +86,7 @@ class BlogController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(blog $blog)
-    {
-
-    }
+    public function edit(blog $blog) {}
 
     /**
      * Update the specified resource in storage.
@@ -117,5 +114,4 @@ class BlogController extends Controller
         }
         return redirect('/manage_blog');
     }
-    
-}    
+}
