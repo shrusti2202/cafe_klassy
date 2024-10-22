@@ -52,20 +52,31 @@
   </div>
 
   <div class="container">
-    <form>
-      <label>News Image</label>
-      <input type="text" name="img" placeholder="News Image..">
 
-      <label>News Date</label>
-      <input type="text" name="date" placeholder="News Date..">
+  @if ($errors->any())
+    <div class="alert alert-danger">
+      <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+    @endif
 
-      <label>News Name</label>
-      <input type="text" name="name" placeholder="News Name..">
+    <form method='post' action="{{url('/insert_feature')}}" role="form" enctype="multipart/form-data">
+ 
+    @csrf
 
-      <label>News Description</label>
-      <input type="text" name="description" placeholder="News Description..">
+      <label>Feature Name</label>
+      <input type="text" name="name" placeholder="Feature Name..">
+      
+      <label>Feature Image</label><p></p>
+      <input type="file" name="img" placeholder="Feature Image.."><p></p>
 
-      <input type="submit" value="Submit">
+      <label>Feature Title</label>
+      <input type="text" name="title" placeholder="Feature Title..">
+
+      <input type="submit" name="submit" value="Submit">
     </form>
   </div>
 

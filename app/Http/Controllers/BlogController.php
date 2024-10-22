@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\blog;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -58,7 +57,7 @@ class BlogController extends Controller
         $filename = time() . '_img.' . $file->getClientOriginalExtension(); // e.g. 656676576_img.jpg
 
         // Move the file to the desired location
-        $file->move('admin/assests/img/blogs', $filename); // Corrected path to 'public' directory
+        $file->move('admin/assets/img/blogs', $filename); // Corrected path to 'public' directory
 
         // Store the file name in the database
         $data->img = $filename;

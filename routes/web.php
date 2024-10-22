@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
@@ -32,21 +33,33 @@ Route::get('/store', [StoreController::class, 'create']);
 
 Route::get('/testimonial', [TestimonialController::class, 'create']);
 
-Route::get('/signup', function () {
-    return view('website.signup');
-});
-Route::get('/login', function () {
-    return view('website.login');
-});
+
+Route::get('/signup',[userController::class,'create']);
+Route::post('/insert_signup',[userController::class,'store']);
+
+Route::get('/login',[userController::class,'login']);
+Route::post('/login_auth',[userController::class,'login_auth']);
+
+Route::get('/userprofile',[userController::class,'userprofile']);
+Route::get('/editprofile/{id}',[userController::class,'edit']);
+Route::post('/updateprofile/{id}',[userController::class,'update']);
+
+Route::get('/user_logout',[userController::class,'user_logout']);
 
 
 // ==================================================Admin Route===============================================
+Route::get('/admin_login',[adminController::class,'index'] );
+Route::post('/adminlogin_auth',[adminController::class,'adminlogin_auth']);
 
-Route::get('/index', function () {
-    return view('admin.index');
-});
-Route::get('dashboard', function () {
+Route::get('/admin_logout',[adminController::class,'admin_logout']);
+
+Route::get('/dashboard', function () {
     return view('admin.dashboard');
+});
+
+
+Route::get('index', function () {
+    return view('admin.index');
 });
 
 Route::get('/add_blog', [BlogController::class, 'insert']);
@@ -61,21 +74,33 @@ Route::get('/delete_contact/{id}', [ContactController::class, 'destroy']);
 
 Route::get('/add_feature', [FeatureController::class, 'insert']);
 Route::get('/manage_feature', [FeatureController::class, 'index']);
+Route::post('/insert_feature', [FeatureController::class, 'store']);
+Route::get('/delete_feature/{id}', [FeatureController::class, 'destroy']);
+
+
 
 
 Route::get('/add_product', [ProductController::class, 'insert']);
 Route::get('/manage_product', [ProductController::class, 'index']);
+Route::post('/insert_product', [ProductController::class, 'store']);
+Route::get('/delete_product/{id}', [ProductController::class, 'destroy']);
 
 
 Route::get('/add_store', [StoreController::class, 'insert']);
 Route::get('/manage_store', [StoreController::class, 'index']);
+Route::post('/insert_store', [StoreController::class, 'store']);
+Route::get('/delete_store/{id}', [StoreController::class, 'destroy']);
 
 
 Route::get('/add_testimonial', [TestimonialController::class, 'insert']);
 Route::get('/manage_testimonial', [TestimonialController::class, 'index']);
+Route::post('/insert_testimonial', [TestimonialController::class, 'store']);
+Route::get('/delete_testimonial/{id}', [TestimonialController::class, 'destroy']);
 
 
-Route::get('/manage_users', [UserController::class, 'index']);
+Route::get('/manage_user', [UserController::class,'index']);
+Route::get('/delete_user/{id}', [UserController::class,'destroy']);
+
 
 Route::get('alogin', function () {
     return view('admin.alogin');

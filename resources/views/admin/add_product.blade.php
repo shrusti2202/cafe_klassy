@@ -52,18 +52,32 @@
   </div>
 
   <div class="container">
-    <form action="/action_page.php">
+  @if ($errors->any())
+    <div class="alert alert-danger">
+      <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+    @endif
+
+    <form method='post' action="{{url('/insert_product')}}" role="form" enctype="multipart/form-data">
+      @csrf
       <label>Product Name</label>
       <input type="text" name="name" placeholder="Product name..">
 
-      <label>Product Image</label>
-      <input type="text" name="img" placeholder="Product Image..">
+      <label>Product Image</label><p></p>
+      <input type="file" name="img" placeholder="Product Image.."><p></p>
 
+
+      <label>Product Title</label>
+      <input type="text" name="title" placeholder="Product Title..">
 
       <label>Product Description</label>
       <input type="text" name="description" placeholder="Product Description..">
 
-      <input type="submit" value="Submit">
+      <input type="submit" value="Submit" name="submit">
     </form>
   </div>
 

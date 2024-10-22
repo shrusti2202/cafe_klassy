@@ -34,13 +34,14 @@
   </div>
   <h1 ALIGN='center' style='color:grey'>BLOGS</h1>
 
-  <div class="panel-body" style="font-size:20px">
+  <div class="panel-body" style="font-size:15px">
     <div class="table-responsive">
       <table class="table table-striped table-bordered table-hover">
         <thead>
           <tr>
             <th>ID</th>
             <th>Name</th>
+            <th>Description</th>
             <th>Image</th>
             <th>Action</th>
           </tr>
@@ -53,7 +54,8 @@
               <tr>
                 <td><?php echo $w->id; ?></td>
                 <td><?php echo $w->name; ?></td>
-                <td><img src="admin/assests/img/blogs/<?php echo $w->img; ?>" width="50px"></td>
+                <td><?php echo $w->description; ?></td>
+                <td><img src="admin/assets/img/blogs/<?php echo $w->img; ?>" width="50px"></td>
                 <td>
                   <a class="btn btn-success" class="btn btn-primary"><?php echo $w->status; ?></a>
                   <a class="btn btn-success" href="edit?editcat=<?php echo $w->id; ?>" class="btn btn-primary">Edit</a>

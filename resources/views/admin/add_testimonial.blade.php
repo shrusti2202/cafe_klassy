@@ -49,18 +49,28 @@
   </div>
 
   <div class="container" method='post'>
-    <form>
+  @if ($errors->any())
+    <div class="alert alert-danger">
+      <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+    @endif
+    <form role="form" action="{{url('/insert_testimonial')}}" method="post" enctype="multipart/form-data">
+      @csrf
 
       <label> Name</label>
       <input type="text" name="name" placeholder=" Name..">
 
-      <label> Image</label>
-      <input type="text" name="img" placeholder=" Image..">
+      <label> Image</label><p></p>
+      <input type="file" name="img" placeholder=" Image.."><p></p>
 
       <label>Description</label>
       <input type="text" name="description" placeholder=" Description..">
 
-      <input type="submit" value="Submit">
+      <input type="submit" value="Submit" name="submit">
     </form>
   </div>
 

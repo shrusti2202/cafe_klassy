@@ -4,107 +4,49 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-    }
+<div id="page-wrapper">
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-head-line">DASHBOARD</h1>
+                        <h1 class="page-subhead-line">This is dummy text , you can replace it with your original text. </h1>
 
-    form {
-      border: 3px solid #f1f1f1;
-    }
+                    </div>
+                </div>
+                <!-- /. ROW  -->
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="main-box mb-red">
+                            <a href="#">
+                                <i class="fa fa-bolt fa-5x"></i>
+                                <h5>Zero Issues</h5>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="main-box mb-dull">
+                            <a href="#">
+                                <i class="fa fa-plug fa-5x"></i>
+                                <h5>40 Task In Check</h5>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="main-box mb-pink">
+                            <a href="#">
+                                <i class="fa fa-dollar fa-5x"></i>
+                                <h5>200K Pending</h5>
+                            </a>
+                        </div>
+                    </div>
 
-    input[type=text],
-    input[type=password] {
-      width: 100%;
-      padding: 12px 20px;
-      margin: 8px 0;
-      display: inline-block;
-      border: 1px solid #ccc;
-      box-sizing: border-box;
-    }
-
-    button {
-      background-color: #04AA6D;
-      color: white;
-      padding: 14px 20px;
-      margin: 8px 0;
-      border: none;
-      cursor: pointer;
-      width: 100%;
-    }
-
-    button:hover {
-      opacity: 0.8;
-    }
-
-    .cancelbtn {
-      width: auto;
-      padding: 10px 18px;
-      background-color: #f44336;
-    }
-
-    .imgcontainer {
-      text-align: center;
-      margin: 24px 0 12px 0;
-    }
-
-    img.avatar {
-      width: 40%;
-      border-radius: 50%;
-    }
-
-    .container {
-      padding: 16px;
-    }
-
-    span.psw {
-      float: right;
-      padding-top: 16px;
-    }
-
-    /* Change styles for span and cancel button on extra small screens */
-    @media screen and (max-width: 300px) {
-      span.psw {
-        display: block;
-        float: none;
-      }
-
-      .cancelbtn {
-        width: 100%;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <h2 align='center'>Login here</h2>
-
-  <form action="" method="post">
-
-
-    <div class="container">
-      <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
-
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
-
-      <button type="submit">Login</button>
-      <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-      </label>
+                </div>
+            </div>
+            <!-- /. PAGE INNER  -->
+        </div>
+        <!-- /. PAGE WRAPPER  -->
     </div>
-
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" class="cancelbtn">Cancel</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
-    </div>
-  </form>
-
-</body>
+    <!-- /. WRAPPER  -->
 
 </html>
 

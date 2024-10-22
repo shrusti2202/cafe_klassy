@@ -1,3 +1,13 @@
+<?php
+if (session()->has('ses_adminid')) {
+ 
+}
+else
+{
+    echo "<script>window.location='/admin_login';</script>";
+}
+?>
+ 
  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
  <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
@@ -34,14 +44,14 @@
  </head>
 
  <body>
-   @include('sweetalert::alert');
+   @include('sweetalert::alert')
    <!-- Tray -->
    <div id="tray" class="box">
      <p class="f-left box">
        <!-- Switcher -->
        <span class="f-left" id="switcher"> <a href="javascript:void(0);" rel="1col" class="styleswitch ico-col1" title="Display one column"><img src="design/switcher-1col.gif" alt="1 Column" /></a> <a href="javascript:void(0)" rel="2col" class="styleswitch ico-col2" title="Display two columns"><img src="design/switcher-2col.gif" alt="" /></a> </span> Project: <strong>Your Project</strong>
      </p>
-     <p class="f-right">User: <strong><a href="profile">shrusti patel</a></strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong><a href="login" id="logout">Log out</a></strong></p>
+     <p class="f-right">User: <strong><a href="profile">shrusti patel</a></strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong><a href="index" id="logout">Log out</a></strong></p>
    </div>
    <!--  /tray -->
    <hr class="noscreen" />
@@ -62,7 +72,7 @@
        <li><a href="add_store"><span> STORE</span></a></li>
        <li><a href="add_testimonial"><span> TESTIMONIAL</span></a></li>
        <li><a href="manage_contact"><span>MANAGE CONTACT</span></a></li>
-       <li><a href="manage_users"><span>MANAGE USERS</span></a></li>
+       <li><a href="manage_user"><span>MANAGE USERS</span></a></li>
      </ul>
    </div>
    <!-- /header -->

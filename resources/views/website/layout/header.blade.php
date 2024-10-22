@@ -53,6 +53,7 @@
 </head>
 
 <body>
+    
     @include('sweetalert::alert')
 
     <?php
@@ -67,9 +68,9 @@
     ?>
 
     <!-- Spinner Start -->
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <!-- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
-    </div>
+    </div> -->
     <!-- Spinner End -->
 
 
@@ -85,9 +86,20 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto">
+                        
                         <a href="/" class="nav-item nav-link <?php active('') ?>">Home</a>
                         <a href="about" class="nav-item nav-link <?php active('about') ?>">About</a>
                         <a href="product" class="nav-item nav-link <?php active('product') ?>">Products</a>
+                        <a href="">
+              
+            @if(session()->has('ses_userid'))
+            <a href="userprofile" class="pt-1">
+              <i class="fa fa-USER" aria-hidden="true"></i>
+              <span>
+              <h6> Hi .. {{session()->get('ses_username')}}  / My Account </h6>
+              </span>
+            </a>
+            @endif
                         <a href="store" class="nav-item nav-link <?php active('store') ?>">Store</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
@@ -100,8 +112,15 @@
                         </div>
                         <a href="contact" class="nav-item nav-link <?php active('contact') ?>">Contact</a>
                         <div class="navbar-nav ms-auto border-start ps-4 d-none d-lg-block">
-                            <a href="signup" class="nav-item nav-link <?php active('signup') ?>">Signup</a>
-                        </div>
+                        @if(session()->has('ses_userid'))
+                <li class="nav-item">
+                  <a class="nav-link" href="user_logout">Logout</a>
+                </li>
+                @else
+                <li class="nav-item <?php active('signup')?>">
+                  <a class="nav-link" href="signup">Signup</a>
+                </li>
+                @endif                        </div>
                     </div>
 
                 </div>

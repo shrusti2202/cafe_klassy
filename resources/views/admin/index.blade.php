@@ -76,20 +76,29 @@
 </head>
 
 <body>
-
+  @include('sweetalert::alert')
   <h2 align='center'>Login here</h2>
-
-  <form action="" method="post">
+  @if ($errors->any())
+  <div class="alert alert-danger">
+    <ul>
+      @foreach ($errors->all() as $error)
+      <li>{{ $error }}</li>
+      @endforeach
+    </ul>
+  </div>
+  @endif
+  <form role="form" action="{{url('/adminlogin_auth')}}" method="post">
+    @csrf
 
 
     <div class="container">
-      <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
+      <label for="uname"><b>User Email</b></label>
+      <input type="text" placeholder="Enter Username" name="email" value="{{old('email')}}" required>
 
       <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+      <input type="password" placeholder="Enter Password" name="password" value="{{old('password')}}" required>
 
-      <button type="submit">Login</button>
+      <button type="submit" name="submit">Login</button>
       <label>
         <input type="checkbox" checked="checked" name="remember"> Remember me
       </label>

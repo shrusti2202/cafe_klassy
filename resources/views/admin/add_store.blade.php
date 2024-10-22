@@ -50,12 +50,23 @@
   </div>
 
   <div class="container">
-    <form>
+  @if ($errors->any())
+    <div class="alert alert-danger">
+      <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+    @endif
+
+    <form action="{{url('/insert_store')}}" method="post" role="form" enctype="multipart/form-data" >
+      @csrf
       <label>Store Name</label>
       <input type="text" name="name" placeholder="Store Name..">
 
-      <label>Store Image</label>
-      <input type="text" name="img" placeholder="Store Image..">
+      <label>Store Image</label><p></p>
+      <input type="file" name="img" placeholder="Store Image.."><p></p>
 
       <label>Store Price</label>
       <input type="text" name="price" placeholder="Store Price..">
@@ -65,7 +76,7 @@
 
 
 
-      <input type="submit" value="Submit">
+      <input type="submit" value="Submit" name="submit">
     </form>
   </div>
 
