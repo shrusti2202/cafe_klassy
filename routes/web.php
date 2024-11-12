@@ -47,6 +47,9 @@ Route::post('/updateprofile/{id}',[userController::class,'update']);
 Route::get('/user_logout',[userController::class,'user_logout']);
 
 
+Route::get('/forgotpass',[userController::class,'forgotpass']);
+
+
 // ==================================================Admin Route===============================================
 Route::get('/admin_login',[adminController::class,'index'] );
 Route::post('/adminlogin_auth',[adminController::class,'adminlogin_auth']);

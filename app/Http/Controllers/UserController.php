@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert; // use Alert;
 use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\Session\Session;
+use App\Mail\welcomemail;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -40,9 +42,10 @@ class UserController extends Controller
         ]);
 
         $data = new user;
-        $data->name = $request->name;
-        $data->email = $request->email;
+        $name=$data->name = $request->name;
+        $email=$data->email = $request->email;
         $data->mobile = $request->mobile;
+        $password=$request->password;
         $data->password = Hash::make($request->password);
       
 
@@ -52,6 +55,11 @@ class UserController extends Controller
         $file->move('website/images/users/', $filename);  // use move for move image in public/images
 
         $data->img = $filename; // name store in db
+
+        $mail_data=array("name"=>$name,"email"=>$email,"password"=>$password);
+        Mail::to($email)->send(new welcomemail($mail_data));
+
+
         $data->save();
         Alert::success('Success Title', 'Signup Success');
         return redirect('/signup');
@@ -105,6 +113,12 @@ class UserController extends Controller
 		return redirect('/');
     }
     
+ 
+    public function forgotpass(Request $request)
+    {
+        return view('website.forgotpass');
+    }
+
     /**
      * Display the specified resource.
      */

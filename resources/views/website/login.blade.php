@@ -104,19 +104,22 @@ span.psw {
     <label><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="password" value="{{old('password')}}" required>
         
+
+
+    <button type="submit" name="submit" value="submit">Login</button>
     <h5 align='center' class='pt-3 pb-3'>
       If You'r Not Register <a href='signup'>Sign Up Here</a>
     </h5>
-
-    <button type="submit" name="submit" value="submit">Login</button>
+    
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>
   </div>
-  <div class="container" style="background-color:#f1f1f1">
-    <button type="button" class="cancelbtn">Cancel</button>
-    <span class="psw">Forgot <a href="#">password?</a></span>
-  </div>
+  <span class="psw">Forgot <a href="forgotpass">password?</a></span>
+
+  <!-- <div class="container" style="background-color:#f1f1f1"> -->
+    <!-- <button type="button" class="cancelbtn">Cancel</button> -->
+  <!-- </div> -->
   
 </form>
 </body>
